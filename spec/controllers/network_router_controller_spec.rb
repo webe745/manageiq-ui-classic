@@ -184,7 +184,8 @@ describe NetworkRouterController do
       let(:router) { FactoryGirl.create(:network_router, :name => "router-01")}
       before do
           controller.instance_variable_set(:@_params, {:id=> router.id})
-          controller.instance_variable_set(:@lastaction, "blabla")
+          controller.instance_variable_set(:@lastaction, "show")
+          controller.instance_variable_set(:@layout, "network_router")
       end
       it "testing " do
           controller.send(:delete_network_routers)

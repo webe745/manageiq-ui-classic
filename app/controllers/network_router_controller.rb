@@ -165,7 +165,7 @@ class NetworkRouterController < ApplicationController
                  @lastaction.nil?
                 find_checked_ids_with_rbac(NetworkRouter)
               else
-                [find_id_with_rbac(NetworkRouter, params[:id])]
+                [find_record_with_rbac(NetworkRouter, params[:id]).id]
               end
 
     add_flash(_("No routers were selected for deletion."), :error) if routers.empty?
