@@ -157,7 +157,6 @@ class NetworkRouterController < ApplicationController
   end
 
   def delete_network_routers
-    binding.pry
     assert_privileges("network_router_delete")
 
     routers = if @lastaction == "show_list" ||

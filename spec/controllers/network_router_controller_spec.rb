@@ -186,8 +186,12 @@ describe NetworkRouterController do
           controller.instance_variable_set(:@_params, {:id=> router.id})
           controller.instance_variable_set(:@lastaction, "show")
           controller.instance_variable_set(:@layout, "network_router")
+          allow_any_instance_of(NetworkRouter).to receive(:supports_delete?).and_return(true)
+          allow_any_instance_of(NetworkRouter).to receive(:delete_network_router_queue).and_return(true)
       end
       it "testing " do
+          expect(controller).to receive(:process_network_routers).with([NetworkRouter], "destroy")
+          
           controller.send(:delete_network_routers)
       end
   end
