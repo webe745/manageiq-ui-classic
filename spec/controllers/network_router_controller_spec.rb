@@ -180,6 +180,17 @@ describe NetworkRouterController do
     end
   end
 
+  describe "#delete_network_routers" do
+      let(:router) { FactoryGirl.create(:network_router, :name => "router-01")}
+      before do
+          controller.instance_variable_set(:@_params, {:id=> router.id})
+          controller.instance_variable_set(:@lastaction, "blabla")
+      end
+      it "testing " do
+          controller.send(:delete_network_routers)
+      end
+  end
+  
   describe "#delete" do
     before do
       stub_user(:features => :all)
