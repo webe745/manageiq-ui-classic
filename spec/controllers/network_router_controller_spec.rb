@@ -189,7 +189,7 @@ describe NetworkRouterController do
           allow_any_instance_of(NetworkRouter).to receive(:supports_delete?).and_return(true)
           allow_any_instance_of(NetworkRouter).to receive(:delete_network_router_queue).and_return(true)
       end
-      it "testing " do
+      it "it calls process_network_routers fn" do
           expect(controller).to receive(:process_network_routers).with([NetworkRouter], "destroy")
           
           controller.send(:delete_network_routers)
